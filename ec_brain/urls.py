@@ -15,17 +15,21 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from django.conf import settings
+from django.conf.urls.static import static
+
 
 import serwis.views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^kontrahent-list$', serwis.views.ListKontrahentView.as_view(),
-name='kontrahent-list',),
-    url(r'^kontrahent-new$', serwis.views.CreateKontrahentView.as_view(),
-name='kontrahent-new',),
-    url(r'^oddzial-list$', serwis.views.ListOddzialView.as_view(),
-name='oddzial-list',),
-    url(r'^oddzial-new$', serwis.views.CreateOddzialView.as_view(),
-name='oddzial-new',),
-]
+    url(r'^kontrahent-list$', serwis.views.ListKontrahentView.as_view(), name='kontrahent-list',),
+    url(r'^kontrahent-new$', serwis.views.CreateKontrahentView.as_view(), name='kontrahent-new',),
+    url(r'^kontrahent-edit/(?P<pk>\d+)/$', serwis.views.UpdateKontrahentView.as_view(), name='kontrahent-edit',),
+    url(r'^oddzial-list$', serwis.views.ListOddzialView.as_view(), name='oddzial-list',),
+    url(r'^oddzial-new$', serwis.views.CreateOddzialView.as_view(), name='oddzial-new',),
+    url(r'^oddzial-edit/(?P<pk>\d+)/$', serwis.views.UpdateOddzialView.as_view(), name='oddzial-edit',),
+    url(r'^urzadzenie-list$', serwis.views.ListUrzadzenieView.as_view(), name='urzadzenie-list',),
+    url(r'^urzadzenie-new$', serwis.views.CreateUrzadzenieView.as_view(), name='urzadzenie-new',),
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+

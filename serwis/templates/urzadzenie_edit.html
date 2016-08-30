@@ -1,9 +1,9 @@
 {% extends "root.html" %}
 {% block content %}
 {% if kontrahent.id %}
-<h1>Edycja Kontrahenta</h1>
+<h1>Edycja urządzenia</h1>
 {% else %}
-<h1>Nowy Kontrahent</h1>
+<h1>Nowe urządzenie</h1>
 {% endif %}
 
 <form action="{{ action }}" method="POST">
@@ -11,8 +11,8 @@
     <ul>
         {{ form.as_ul }}
     </ul>
-    <input id="save_kontrahent" type="submit" value="Zapisz" />
+    <input id="save_urzadzenie" type="submit" value="Zapisz" />
 </form>
 
-<a href="{% url "kontrahent-list" %}">powrót do listy kontrahentów</a>
+<a href="{% url "urzadzenie-list" %}">powrót do listy urządzeń</a>
 {% endblock %}

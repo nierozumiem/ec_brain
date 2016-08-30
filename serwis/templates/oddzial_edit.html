@@ -1,6 +1,12 @@
-<h1>Dodawanie oddziału</h1>
+{% extends "root.html" %}
+{% block content %}
+{% if kontrahent.id %}
+<h1>Edycja Oddziału</h1>
+{% else %}
+<h1>Nowy Oddział</h1>
+{% endif %}
 
-<form action="{% url "oddzial-new"  %}" method="POST">
+<form action="{{ action }}" method="POST">
     {% csrf_token %}
     <ul>
         {{ form.as_ul }}
@@ -9,3 +15,4 @@
 </form>
 
 <a href="{% url "oddzial-list" %}">powrót do listy oddziałów</a>
+{% endblock %}

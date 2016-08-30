@@ -31,7 +31,7 @@ class Oddzial(models.Model):
     mpk = models.CharField(
         max_length=255
     )
-    kontahent = models.ForeignKey(
+    kontrahent = models.ForeignKey(
         'Kontrahent',
         on_delete=models.PROTECT,
     )
@@ -57,7 +57,10 @@ class Urzadzenie(models.Model):
         ('R312', 'R 312'),
         ('R234', 'R 234'),
     )
-    
+    TAK_NIE = (
+        ('1', 'TAK'),
+        ('0', 'NIE'),
+    )
     producent = models.CharField(
         max_length=255,
     )
@@ -77,9 +80,13 @@ class Urzadzenie(models.Model):
         max_length=255,
     )
     koniec_gwarancji = models.DateField()
-    multi = models.BinaryField()
+    multi = models.IntegerField(
+        choices=TAK_NIE
+    )
     ile_multi = models.PositiveSmallIntegerField()
-    strategiczny = models.BinaryField()
+    strategiczny = models.IntegerField(
+        choices=TAK_NIE
+    )
     uwagi = models.TextField()
     numer_seryjny = models.CharField(
         max_length=255,

@@ -1,0 +1,10 @@
+{% extends "root.html" %}
+{% block content %}<h1>Urzadzenia</h1>
+<ul>
+    {% for urzadzenie in object_list %}
+    <li class="urzadzenie">{{ urzadzenie }}
+    	(<a href="{% url "urzadzenie-edit" pk=urzadzenie.id %}">edycja</a>)
+    </li>
+    {% endfor %}
+</ul> 
+{% endblock %}

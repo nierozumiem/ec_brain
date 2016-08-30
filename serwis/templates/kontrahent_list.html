@@ -1,7 +1,10 @@
-<h1>Kontrahenci</h1>
-
+{% extends "root.html" %}
+{% block content %}<h1>Kontrahenci</h1>
 <ul>
     {% for kontrahent in object_list %}
-    <li class="kontrahent">{{ kontrahent }}</li>
+    <li class="kontrahent">{{ kontrahent }}
+    	(<a href="{% url "kontrahent-edit" pk=kontrahent.id %}">edycja</a>)
+    </li>
     {% endfor %}
-</ul>
+</ul> 
+{% endblock %}

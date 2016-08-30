@@ -1,6 +1,12 @@
+{% extends "root.html" %}
+
+{% block content %}
 <h1>Oddziały</h1>
 <ul>
     {% for oddzial in object_list %}
-    <li class="kontrahent">{{ odddzial }}</li>
+    <li class="oddzial">{{ oddzial }}
+    	(<a href="{% url "oddzial-edit" pk=oddzial.id %}">edycja</a>)
+    </li>
     {% endfor %}
 </ul>
+{% endblock %}
