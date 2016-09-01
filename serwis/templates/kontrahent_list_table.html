@@ -1,0 +1,6 @@
+{# serwis/templates/people.html #}
+{% extends "root.html" %}
+{% load render_table from django_tables2 %}
+{% block content %}
+        {% render_table kontrahenci %}
+{% endblock %}
