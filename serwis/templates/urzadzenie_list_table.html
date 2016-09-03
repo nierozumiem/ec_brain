@@ -1,0 +1,8 @@
+{# serwis/templates/urzadzenie_list_table.html #}
+{% extends "root.html" %}
+{% load render_table from django_tables2 %}
+{% block content %}
+        <h3>Lista urządzeń</h3>
+        {% render_table urzadzenia %}
+        <a href="{% url 'urzadzenie_new' %}">Dodaj nowe urządzenie</a>
+{% endblock %}

@@ -23,13 +23,22 @@ import serwis.views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^kontrahent-list$', serwis.views.ListKontrahentView.as_view(), name='kontrahent-list',),
-    url(r'^kontrahent-new$', serwis.views.CreateKontrahentView.as_view(), name='kontrahent-new',),
-    url(r'^kontrahent-edit/(?P<pk>\d+)/$', serwis.views.UpdateKontrahentView.as_view(), name='kontrahent-edit',),
-    url(r'^oddzial-list$', serwis.views.ListOddzialView.as_view(), name='oddzial-list',),
-    url(r'^oddzial-new$', serwis.views.CreateOddzialView.as_view(), name='oddzial-new',),
-    url(r'^oddzial-edit/(?P<pk>\d+)/$', serwis.views.UpdateOddzialView.as_view(), name='oddzial-edit',),
-    url(r'^urzadzenie-list$', serwis.views.ListUrzadzenieView.as_view(), name='urzadzenie-list',),
-    url(r'^urzadzenie-new$', serwis.views.CreateUrzadzenieView.as_view(), name='urzadzenie-new',),
+    url(r'^$', serwis.views.home, name='home'),
+    # kontrahenci
+    url(r'^kontrahent-list$', serwis.views.kontrahenci, name='kontrahent_list',),
+    url(r'^kontrahent-new$', serwis.views.CreateKontrahentView.as_view(), name='kontrahent_new',),
+    url(r'^kontrahent-edit/(?P<pk>\d+)/$', serwis.views.UpdateKontrahentView.as_view(), name='kontrahent_edit',),
+    #oddziały
+    url(r'^oddzial-list$', serwis.views.oddzialy, name='oddzial_list',),
+    url(r'^oddzial-new$', serwis.views.CreateOddzialView.as_view(), name='oddzial_new',),
+    url(r'^oddzial-edit/(?P<pk>\d+)/$', serwis.views.UpdateOddzialView.as_view(), name='oddzial_edit',),
+    #urządzenia
+    url(r'^urzadzenie-list$', serwis.views.urzadzenia, name='urzadzenie_list',),
+    url(r'^urzadzenie-new$', serwis.views.CreateUrzadzenieView.as_view(), name='urzadzenie_new',),
+    url(r'^urzadzenie-edit/(?P<pk>\d+)/$', serwis.views.UpdateUrzadzenieView.as_view(), name='urzadzenie_edit'),
+    #typy urządzeń
+    url(r'^typ-urzadzenia-list$', serwis.views.typy_urzadzen, name='typ_urzadzenia_list',),
+    url(r'^typ-urzadzenia-new$', serwis.views.CreateTypUrzadzeniaView.as_view(), name='typ_urzadzenia_new',),
+    url(r'^typ-urzadzenia-edit/(?P<pk>\d+)/$', serwis.views.UpdateTypUrzadzeniaView.as_view(), name='typ_urzadzenia_edit',),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 

@@ -5,22 +5,26 @@ class Kontrahent(models.Model):
     
     nazwa = models.CharField(
         max_length=255,
+        verbose_name = 'Nazwa',
     )
     nip = models.CharField(
         max_length=255,
+        verbose_name = 'NIP',
     )
     ulica = models.CharField(
         max_length=255,
+        verbose_name = 'Ulica',
     )
     kod = models.CharField(
         max_length=255,
+        verbose_name = 'Kod',
     )
     miasto = models.CharField(
-        max_length=255
+        max_length=255,
+        verbose_name = 'Miasto',
     )
 
     def __str__(self):
-
         return self.nazwa
 
 class Oddzial(models.Model):
@@ -46,7 +50,6 @@ class TypUrzadzenia(models.Model):
     )
 
     def __str__(self):
-
         return self.typ
 
 class Urzadzenie(models.Model):
@@ -58,8 +61,8 @@ class Urzadzenie(models.Model):
         ('R234', 'R 234'),
     )
     TAK_NIE = (
-        ('1', 'TAK'),
-        ('0', 'NIE'),
+        (1, 'TAK'),
+        (0, 'NIE'),
     )
     producent = models.CharField(
         max_length=255,
@@ -83,11 +86,11 @@ class Urzadzenie(models.Model):
     multi = models.IntegerField(
         choices=TAK_NIE
     )
-    ile_multi = models.PositiveSmallIntegerField()
+    ile_multi = models.PositiveSmallIntegerField(blank=True)
     strategiczny = models.IntegerField(
         choices=TAK_NIE
     )
-    uwagi = models.TextField()
+    uwagi = models.TextField(blank=True)
     numer_seryjny = models.CharField(
         max_length=255,
     )

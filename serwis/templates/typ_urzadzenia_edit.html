@@ -1,9 +1,9 @@
 {% extends "root.html" %}
 {% block content %}
-<h3>{% if kontrahent.id %}
-Edycja urządzenia
+<h3>{% if typ_urzadzenia.id %}
+Edycja typu urządzenia
 {% else %}
-Nowe urządzenie
+Nowy typ urządzenia
 {% endif %}</h3>
 
 <form action="{{ action }}" method="POST">
@@ -11,8 +11,8 @@ Nowe urządzenie
     <table class="table table-nonfluid table-sm">
         {{ form.as_table }}
     </table>
-    <input id="save_urzadzenie" type="submit" value="Zapisz" />
+    <input id="save_kontrahent" type="submit" value="Zapisz" />
 </form>
 
-<a href="{% url "urzadzenie_list" %}">powrót do listy urządzeń</a>
+<a href="{% url "typ_urzadzenia_list" %}">powrót do listy typów urządzeń</a>
 {% endblock %}

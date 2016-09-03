@@ -1,18 +1,18 @@
 {% extends "root.html" %}
 {% block content %}
-{% if kontrahent.id %}
-<h1>Edycja Kontrahenta</h1>
+<h3>{% if kontrahent.id %}
+Edycja kontrahenta
 {% else %}
-<h1>Nowy Kontrahent</h1>
-{% endif %}
+Nowy Kontrahent
+{% endif %}</h3>
 
 <form action="{{ action }}" method="POST">
     {% csrf_token %}
-    <ul>
-        {{ form.as_ul }}
-    </ul>
+    <table class="table table-nonfluid table-sm">
+        {{ form.as_table }}
+    </table>
     <input id="save_kontrahent" type="submit" value="Zapisz" />
 </form>
 
-<a href="{% url "kontrahent-list" %}">powrót do listy kontrahentów</a>
+<a href="{% url "kontrahent_list" %}">powrót do listy kontrahentów</a>
 {% endblock %}

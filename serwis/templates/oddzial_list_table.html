@@ -1,0 +1,8 @@
+{# serwis/templates/odzial_list_table.html #}
+{% extends "root.html" %}
+{% load render_table from django_tables2 %}
+{% block content %}
+		<h3>Lista oddziałów</h3>
+        {% render_table oddzialy %}
+        <a href="{% url 'oddzial_new' %}">Dodaj nowy oddział</a>
+{% endblock %}

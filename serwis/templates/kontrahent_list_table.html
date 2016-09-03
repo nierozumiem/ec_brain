@@ -2,5 +2,7 @@
 {% extends "root.html" %}
 {% load render_table from django_tables2 %}
 {% block content %}
+		<h3>Lista kontrahentów</h3>
         {% render_table kontrahenci %}
+        <a href="{% url 'kontrahent_new' %}">Dodaj nowego kontrahenta</a>
 {% endblock %}

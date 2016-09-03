@@ -1,18 +1,18 @@
 {% extends "root.html" %}
 {% block content %}
-{% if kontrahent.id %}
-<h1>Edycja Oddziału</h1>
+<h3>{% if oddzial.id %}
+Edycja oddziału
 {% else %}
-<h1>Nowy Oddział</h1>
-{% endif %}
+Nowy oddział
+{% endif %}</h3>
 
 <form action="{{ action }}" method="POST">
     {% csrf_token %}
-    <ul>
-        {{ form.as_ul }}
-    </ul>
+    <table class="table table-nonfluid table-sm">
+        {{ form.as_table }}
+    </table>
     <input id="save_oddzial" type="submit" value="Zapisz" />
 </form>
 
-<a href="{% url "oddzial-list" %}">powrót do listy oddziałów</a>
+<a href="{% url "oddzial_list" %}">powrót do listy oddziałów</a>
 {% endblock %}
